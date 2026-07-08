@@ -1,0 +1,24 @@
+"""
+Definition of Interval:
+class Interval(object):
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+"""
+
+class Solution:
+    def canAttendMeetings(self, intervals: List[Interval]) -> bool:
+
+        def sorting(i):
+            return i.start
+
+        intervals.sort(key=sorting)
+
+
+        for i in range(1,len(intervals)):
+            n=intervals[i-1]
+            m=intervals[i]
+
+            if n.end > m.start:
+                return False
+        return True
